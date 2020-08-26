@@ -1,0 +1,164 @@
+Exercicio 1 
+
+create database db_diversos
+
+use db_diversos;
+
+create table tb_escola(
+
+	id bigint (5) auto_increment,
+    idade bigint (2),
+    aluno varchar (50) not null,
+    matricula bigint (6) not null,
+    matriculado boolean,
+    
+    primary key(id)
+
+);
+
+insert into tb_escola (idade, aluno, matricula, matriculado) values (28, "Bruno Cardoso", 389322, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (15, "Rafael Mendes", 311458, false);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (22, "Giancarlo Lucca", 311458, false);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (14, "Daniel Mama", 1123547, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (25, "Danilo legusta", 111458, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (29, "Evilson Edeilson", 001458, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (31, "Vitor Chaves", 001558, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (20, "Lenon Chaves", 001459, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (27, "Camila Cleane", 001450, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (34, "Fabricio Gusmão", 001459, false);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (20, "Igor Vendeta", 111557, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (23, "Rivaldo Santana", 025871, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (13, "Julia Cardoso", 022459, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (22, "Grindewald Silva", 078459, true);
+insert into tb_escola (idade, aluno, matricula, matriculado) values (12, "Corvinal Flamming", 101459, true);
+
+// Consulta para maiores de 18 anos 
+
+select * from tb_escola
+where idade > 18 and matriculado = true;
+
+// Consulta para menos de 18 anos
+
+select * from tb_escola
+where idade > 18 and matriculado = true;
+
+// Consulta os participantes entre 20 e 25 anos
+
+select * from tb_escola
+where idade between 20 and 25
+and  matriculado = true;
+_________________________________________________________________________________________________________________________
+
+Exercicio 2
+
+Create database db_petshop
+
+use db_petshop;
+
+use db_petshop; 
+
+create table tb_animais (
+
+id bigint (5) auto_increment,
+nome varchar(50) not null,
+animal varchar(50) not null,
+peso decimal (2),
+responsavel varchar(50) not null,
+genero varchar(20) not null,
+vacinado boolean ,
+
+primary key(id)
+);
+
+
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Belinha", "Cachorro", 18, "Bruno", "Masculino", true)
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Tata", "Tartaruga", 50, "Carolina", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Thor", "Cachorro", 10, "Augusto", "Macho", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("lala", "Cachorro", 5, "Alberto", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Rodolfo", "Papagaio", 2, "Narciso", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Xanda", "Cachorro", 12, "Alam", "Macho", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Dendo", "Lagarto", 14, "Fabio", "Macho", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Chico", "Porquinho", 25, "Fernando", "Macho", false);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Abrão", "Cachorro", 2, "Rômulo", "Macho", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Cica", "Cachorro", 12, "Larissa", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Teitei", "Cachorro", 14, "Fabricio", "Macho", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("lala", "Cachorro", 8, "Renata", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Samantha", "Cachorro", 2, "Carla", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Sasa", "Cachorro", 12, "Silvia", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Caca", "Cachorro", 4, "Sandra", "Fêmea", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Lessi", "Cachorro", 18, "Camila", "Macho", true);
+insert into tb_animais  (nome, animal, peso, responsavel, genero, vacinado) values ("Max", "Cachorro", 5, "Daniele", "Macho", true);
+
+
+// Animais com pesos maiores do que 10 kilos
+
+select * from tb_animais
+where peso > 18
+
+// Animais com pesos menores do que 10 kilos
+
+select * from tb_animais
+where peso < 18
+
+// Animais com peso entre 10 e 30 kilos
+
+select * from tb_animais
+where peso between 10 and 30
+
+_________________________________________________________________________________________________________________________
+
+Exercicio 3
+
+
+create database db_varejo
+
+use db_varejo;
+
+create table tb_produtos(
+
+id bigint(5) auto_increment,
+produto varchar(100),
+categoria varchar(25),
+preco decimal(10,2),
+disponibilidade boolean,
+quantidade bigint (255),
+cor varchar(50),
+
+primary key(id)
+
+);
+
+
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("lapiseira", "escritório", 2.20, true, 25, "preto");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("lapiseira", "escritório", 2.20, true, 10, "verde");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Marca Texto", "escritório", 1.50, true, 10, "verde");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("corretivo", "escritório", 2.00, true, 50, "");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Fichário", "escritório", 7.50, true, 10, "preto");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Régua de 30 cm", "escritório", 1.00, true, 20, "");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Transferidor", "escritório", 2.75, true, 100, "");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Compasso", "escritório", 2.75, true, 98, "");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Faca Ghinso", "cozinha", 125.00, true, 3, "Aluminio");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Bule 2000", "cozinha", 200.00, true, 3, "Aluminio");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Air fryer", "cozinha", 1350.00, true, 1, "Aluminio");
+insert into tb_produtos (produto, categoria, preco, disponibilidade, quantidade, cor) values  ("Colher mágica", "cozinha", 55.00, false, 0, "Aluminio");
+ 
+// Produtos com a letra A
+
+select * from tb_produtos
+where produto like '%a%';
+
+
+// Produtos de uma categoria 
+
+select categoria from tb_produtos
+
+// Todos os produtos ente 1.000 e 1.500 de uma categoria
+
+use db_varejo;
+select * from tb_produtos
+ 
+where preco between 1000 and 1500 
+and categoria like 'cozinha'
+
+
+
