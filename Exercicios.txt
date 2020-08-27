@@ -148,6 +148,7 @@ select * from tb_produtos
 where produto like '%a%';
 
 
+
 // Produtos de uma categoria 
 
 select categoria from tb_produtos

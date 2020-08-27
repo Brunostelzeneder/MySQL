@@ -1,0 +1,160 @@
+Exercicio 1
+
+Create database db_pizzaria_legal
+
+use db_pizzaria_legal;
+
+create table tb_pizza(
+
+
+
+create table tb_pizza(
+
+id bigint(5) auto_increment,
+cliente varchar (50) not null,
+telefone varchar(14) not null,
+endereco varchar(100) not null,
+
+primary key(id)
+);
+
+insert into tb_pizza (cliente, telefone, endereco) values ("Bruno Stelzeneder", 123456874, "Rua Werner Goldber 179 - Barueri SP");
+insert into tb_pizza (cliente, telefone, endereco) values ("Caio mama", 123456874, "Augusto colino 086 - Barueri SP");
+insert into tb_pizza (cliente, telefone, endereco) values ("Daniel Cardoso", 123456874, "São Lourenço 186 - Barueri SP");
+insert into tb_pizza (cliente, telefone, endereco) values ("Evilson Edeilson", 123456874, "Rua Xinaider 555 - Barueri SP");
+insert into tb_pizza (cliente, telefone, endereco) values ("Irmãs Lorenas", 123456874, "Rua Fernandes de sousa - Osasco SP");
+insert into tb_pizza (cliente, telefone, endereco) values ("Joilton Lacerda Matos", 123456874, "Rua dos temakis - Osasco SP");
+insert into tb_pizza (cliente, telefone, endereco) values ("Gregório Matos da Silva", 123456874, "Rua Arlindo Nogueira - Osasco SP");
+insert into tb_pizza (cliente, telefone, endereco) values ("Carolina Mira", 123456874, "Rua dos acrobatas - Jundiai SP");
+
+
+
+
+
+
+_________________________________________________________________________________________
+
+use db_pizzaria_legal;
+
+create table tb_produto(
+
+
+id_pedido bigint auto_increment,
+sabor_pizza varchar(100) not null,
+valor_pizza decimal(10.2) not null,
+pizza_inteira boolean,
+pizza_meia boolean,
+id_pizza bigint  not null,
+
+primary key (id_pedido),
+foreign key (id_pizza) references tb_pizza(id)
+
+);
+
+use db_pizzaria_legal;
+
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("Calabresa", 45.00, true, false, 1);
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("Frango com catupiry", 65.00, true, false, 2);
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("Baiana", 90.00, false, true, 3);
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("Carne seca com queijo", 35.00, false, true, 4);
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("brocólis com queijo", 80.00, false, true, 5);
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("A moda do Evilson", 120.00, true, false, 6);
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("Escarola com gorgonzola", 75.00, true, false, 7);
+insert into tb_produto (sabor_pizza, valor_pizza, pizza_inteira, pizza_meia, id_pizza) values ("La parma di Evilson", 75.00, true, false, 8);
+
+
+_________________________________________________________________________________________
+
+Faça um select que retorne os Produtos com o valor maior do que 45 reais.
+
+select * from tb_produto
+where valor_pizza > 45
+
+Faça um select trazendo os Produtos com valor entre 29 e 60 reais.
+
+select * from tb_produto
+where valor_pizza > 29 and valor_pizza < 60
+
+Faça um select utilizando LIKE buscando os Produtos com a letra C.
+
+select * from tb_produtos
+where sabor like "%%e%%";
+
+Faça um um select com Inner join entre tabela categoria e pizza.
+
+select * from tb_pizza
+inner join tb_produto on tb_produto.id_pizza = tb_pizza.id
+
+Faça um select onde traga todos os Produtos de uma categoria específica (exemplo todos
+os produtos que são pizza doce).
+
+select * from tb_produtos
+where sabor like "%%Evilson%%";
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Exercicio 2
+
+
+create database db_generation_game_online
+____________________________________________________
+
+use db_generation_game_online;
+
+create table tb_personagem (
+id bigint(5) auto_increment,
+nome_personagem varchar(100) not null,
+regiao_personagem varchar(60) not null,
+poder_personagem varchar(50) not null,
+runas varchar(50) not null,
+skin_personagem boolean,
+
+primary key (id)
+);
+
+_______________________________________________________
+
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Vladimir", "Noxus", "Dano Mágico", "Impeto Gradual", true);
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Choga'th", "Void", "Dano Mágico", "Aperto dos mortos vivos", true);
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Darius", "Noxus", "Dano Fisico", "Conquistador", true);
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Katarina", "Noxus", "Dano Fisico/Dano mágico", "Conquistador", true);
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Taric", "Monte Targon", "Dano Fisico", "Guardião", true);
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Yasuo", "Ionia", "Dano Fisico", "Agilidade nos pés", true);
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Heimerdinger", "Piltover & Zaun", "Dano Mágico", "Cometa Arcano", false);
+insert into tb_personagem (nome_personagem, regiao_personagem, poder_personagem, runas, skin_personagem) values ("Caitlyn", "Piltover & Zaun", "Dano fisico", "agilidade nos pés", true);
+
+
+use db_generation_game_online;
+
+create table tb_classe(
+id_usuario bigint(5) auto_increment,
+usuario varchar(255) not null,
+elo_usuario varchar(100) not null,
+nivel bigint(3) not null,
+
+primary key(id_usuario),
+
+foreign key (id_usuario) references tb_personagem(id)
+
+);
+
+_________________________________________________________
+
+
+
+
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Jojo_temaki","Diamante I",155);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Evilson123","Desafiante",180);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Andre3135","Platina IV",255);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Carloslive1","Diamante I",90);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Romario23","Diamante I",200);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Caiomama10","Diamante IV",50);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Jessicalor","Prata I",100);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Vanessa29072","Desafiante",240);
+insert into tb_classe (usuario, elo_usuario, nivel) values ("Carla234","Mestre",10);
+
+
+
+
+select * from tb_personagem 
+inner join tb_classe on tb_classe.id_usuario = tb_personagem.id
